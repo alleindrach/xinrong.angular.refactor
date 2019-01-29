@@ -1,0 +1,207 @@
+<div class="index_banner">
+  <span class="banner_number"><span id="cur_img">{{curBanner}}</span> / <span id="total_img">{{banners.length}}</span></span>
+  <div class="banner_list">
+    <owl-carousel #owlElement [options]="bannerOptions" [carouselClasses]="['owl-theme', 'sliding']" [items]="bannerImages">
+      <div class="item article" *ngFor="let banner of banners;let i = index">
+        <div>
+          <a [href]="banner.url">
+            <img [src]="banner.image" />
+          </a>
+        </div>
+      </div>
+    </owl-carousel>
+  </div>
+</div>
+<!--公告-->
+<div class="i-s-announ">
+  <div class="announ_img lef"><img src="../../assets/images/h_01.png" /></div>
+  <div class="announ_list" id="announcements">
+    <ul>
+      <li *ngFor="let announcement of announcements;let i = index"><a [href]="announcement.href">{{announcement.title}}</a></li>
+    </ul>
+  </div>
+</div>
+<div class='black5'></div>
+<div class='index_nav'>
+  <ul>
+    <li>
+      <a href='about/index.html'>
+        <p><img src='../../assets/images/icons/11.png' /></p>
+        信息披露
+      </a>
+    </li>
+    <li>
+      <a href='account/service_html'>
+        <p><img src='../../assets/images/icons/12.png' /></p>
+        运营数据
+      </a>
+    </li>
+    <li>
+      <a href='new_activity/new_activity.html'>
+        <p><img src='../../assets/images/icons/13.png' /></p>
+        新手指引
+      </a>
+    </li>
+    <li>
+      <a href='vip/vip_region.html'>
+        <p><img src='../../assets/images/icons/14.png' /></p>
+        会员专享
+      </a>
+    </li>
+  </ul>
+  <div class='clearfix'></div>
+</div>
+<div class='black5'></div>
+<!--热门推荐-->
+<div class='index_hot_recommended'>
+  <h1><i></i>热门推荐</h1>
+  <ng-container *ngIf="hotSectionLoan">
+    <div id='index_project' routerLink="/invest/:{{hotSectionLoan.id}}">
+      <dl>
+        <dt>
+          <h2 id='rate'>
+            <ng-container>
+              {{hotSectionLoan.rate}}
+            </ng-container>
+            <span>%</span>
+          </h2>
+          往期年化收益率
+        </dt>
+        <dd>
+          <h2 id='projectType'>
+            <ng-container>
+              {{hotSectionLoan.loanType|loantype2name}}
+            </ng-container>
+          </h2>
+          <p id='deadline'>
+            <ng-container>
+              {{hotSectionLoan.deadlineStr}}
+            </ng-container>
+          </p>
+          <p>剩余可投资
+            <span class='orange' id='surplusmoney'>
+              <ng-container>
+                {{hotSectionLoan.amount| number:'1.2-2'}}
+              </ng-container>
+            </span>元
+          </p>
+        </dd>
+        <div class='clearfix'></div>
+        <div class='invest_sub'>
+          <a href='javascript:void(0)' class='invest_open' *ngIf="hotSectionLoan.flag===1 && hotSectionLoan.amount>hotSectionLoan.raisedAmount ">
+            100元开启财富之旅</a>
+          <a href="javascript:void(0);" class='invest_await' *ngIf="hotSectionLoan.flag===0 && sectionTimer"><b id='x-hour'>{{sectionTimer.hour}}</b>
+            时 <b id='x-minutes'>{{sectionTimer.min}}</b>
+            分 <b id='x-seconds'>{{sectionTimer.sec}}</b> 秒后开抢</a>
+        </div>
+      </dl>
+    </div>
+  </ng-container>
+  <!--无项目-->
+  <ng-container *ngIf='!hotSectionLoan'>
+    <div id='index_noproject' class='index_noproject'>
+      <p><img src='../../assets/images/noProject.jpg' /></p>
+      <p>正在努力筹集中...</p>
+    </div>
+  </ng-container>
+</div>
+<div class="black5"></div>
+<!--数据-->
+<div class="index_data">
+  <ul>
+    <li>
+      <div class="data_box">
+        <p>累计投资总额</p>
+        <ng-container *ngIf="transactionInfo">
+          <h2 id="all_total" [innerHtml]="transactionInfo['accAllTotal']|commafyCN:{'precise':0,'tenThousand':'万元','styleMode':1,'isTenThousandMode':true}">
+          </h2>
+        </ng-container>
+      </div>
+    </li>
+    <li>
+      <div class="data_box">
+        <p>累计交易笔数</p>
+        <ng-container *ngIf="transactionSummaryInfo">
+          <h2 id="all_loan_count" [innerHtml]="transactionSummaryInfo['allLoanCount']|commafyCN:{'precise':0,'tenThousand':'万笔',unit:'笔','styleMode':1,'isTenThousandMode':true}">
+          </h2>
+        </ng-container>
+      </div>
+    </li>
+    <li>
+      <div class="data_box">
+        <p>累计赚取收益</p>
+        <ng-container *ngIf="transactionInfo">
+          <h2 id="all_retain_total" [innerHtml]="transactionInfo['allRetainTotal']|commafyCN:{'precise':0,'tenThousand':'万元','styleMode':1,'isTenThousandMode':true}">
+          </h2>
+        </ng-container>
+      </div>
+    </li>
+  </ul>
+  <div class="clearfix"></div>
+  <!--运营时间-->
+  <div class="operating_time">
+    <ng-container *ngIf="operatTime">
+      <b id="year" [innerHtml]='operatTime.year'></b>年
+      <b id="day" [innerHtml]='operatTime.day'></b>天
+      <b id="hours" [innerHtml]='operatTime.hour'>18</b>小时
+      <b id="minutes" [innerHtml]='operatTime.minute'></b>分
+      <b id="seconds" [innerHtml]='operatTime.second'></b>秒
+    </ng-container>
+
+    <h2>已运营时间</h2>
+  </div>
+  </div>
+<!--资质-->
+<div class="index_qualification">
+    <ul>
+        <li>
+            <a href="about/esw_zt.html">
+                <div class="li_box">
+                    <p><img src="../../assets/images/icons/15.png" /></p>
+                    江西银行<br />
+                    资金存管
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="about/about_us.html#partnerPic">
+                <div class="li_box">
+                    <p><img src="../../assets/images/icons/16.png" /></p>
+                    广东互金协会<br />
+                    副会长单位
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="about/xr_credit.html">
+                <div class="li_box">
+                    <p><img src="../../assets/images/icons/17.png" /></p>
+                    荣誉资质<br />
+                    等保三级备案
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
+<div class="index_tips"><span>市场有风险，投资需谨慎  查看<a href="agreement/risk_message_invest.html" class="orange">《风险报告书》</a></span></div>
+<div class="black50"></div>
+<!--导航-->
+<div class="h-m-nav">
+    <ul>
+        <li class="cur"><a href="index.html"><span><img src="../../assets/images/icons/04.png" /></span>
+            <h1>首页</h1>
+        </a></li>
+        <li><a href="invest/invest_list.html"><span><img src="../../assets/images/icons/05.png" /></span>
+            <h1>投资</h1>
+        </a></li>
+        <li><a href="found.html"><span><img src="../../assets/images/icons/07.png" /></span>
+            <h1>发现</h1>
+        </a></li>
+        <li><a href="account/account.html"><span><img src="../../assets/images/icons/09.png" /></span>
+            <h1>我的</h1>
+        </a></li>
+    </ul>
+</div>
+
+<router-outlet></router-outlet>

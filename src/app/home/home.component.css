@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+/*banner*/
+.index_banner{ width:100%;margin:0; position: relative; left:0px;top:0px;}
+.index_banner .banner_number{ padding:0 0.5rem; background:rgba(0,0,0,.3); color:#fff; font-size:1rem; position:absolute; right:1rem; top:0.5rem; z-index:3; border-radius:0.9rem; height:1.4rem; line-height:1.4rem;}
+.owl-controls{ display:none;}
+
+/*公告*/
+.i-s-announ{ margin:0 10px; height:3rem; line-height:3rem; background:#fff; position:relative; margin-top:-1.5rem; z-index:6; border-radius:1.5rem; position:relative;}
+.i-s-announ .announ_img{ width:83px; text-align:center; padding-top:8px; position:absolute; left:0px; top:0px;}
+.i-s-announ .announ_img img{ width:68%;}
+.i-s-announ .announ_list{ padding-left:80px; height:3rem; overflow:hidden;}
+.i-s-announ .announ_list ul li{ width:100%; height:3rem; line-height:3rem; display:block;}
+.i-s-announ .announ_list ul li a{ display:inline-block; font-size:1.12rem; color:#666;}
+
+/*nav*/
+.index_nav{ background:#fff; padding:1.2rem 0 0.8rem 0;}
+.index_nav ul{ margin:0px; padding:0px; list-style:none;}
+.index_nav ul li{ width:25%; line-height:3rem; text-align:center; font-size: 1.1rem; float:left;}
+.index_nav ul li img{ height:3rem;}
+.index_nav ul li a{ display:block;}
+
+/*热门推荐*/
+.index_hot_recommended{ width:100%; background:#fff;}
+.index_hot_recommended h1{ padding:0 1rem; line-height:3.6rem; font-weight:normal; font-size:1.4rem;}
+.index_hot_recommended h1 i{ width:6px; height:6px; background:#fff; border:3px solid #ff8601; display:inline-block; border-radius:50%; margin:0 5px 3px 0; vertical-align:middle;}
+.index_hot_recommended dl{ padding:0 1rem;}
+.index_hot_recommended dt{ width:45%; text-align:center; color:#807e7e; font-size: 1rem; float:left;}
+.index_hot_recommended dt h2{ font-size:3.8rem; color:#ff7e01; font-weight:normal; line-height:4.2rem; padding-top:1.1rem;}
+.index_hot_recommended dt h2 span{ font-size:1.6rem;}
+.index_hot_recommended dd{ width:55%; line-height:2.8rem; color:#666; float:left;}
+.index_hot_recommended dd h2{ font-size:1.4rem; font-weight:normal; color:#222222;}
+.index_hot_recommended dd h2 span{ font-size: 1rem;}
+.index_hot_recommended .invest_sub{ padding:1rem 0;}
+.index_hot_recommended .invest_sub .invest_open{display: block; margin:0 auto; width: 90%; height:3.4rem; line-height:3.5rem; text-align: center; border-radius: 6px; -webkit-border-radius:6px;background:#f60; background-image:-webkit-linear-gradient(to left, #ff6700, #ff9900); background-image:linear-gradient(to left, #ff6700, #ff9900); font-size:1.3rem; color:#fff;}
+
+.index_noproject{ padding:1rem 0 1.3rem 0px; text-align:center; font-size: 1.45rem; color: #f5846f; line-height: 2.2rem;}
+.index_noproject img{ width:37%;}
+
+/*数据*/
+.index_data{ width:100%; background:#fff; padding:2rem 0 1rem 0;}
+.index_data ul{ width:100%;}
+.index_data ul li{ width:33.3%; line-height:2rem; text-align:center; font-size:1.1rem; float:left;}
+.index_data ul li .data_box{ margin:0 5px; background:#fff; box-shadow:0px 0px 16px #ededed; padding:1rem 0; border-radius:4px;}
+.index_data ul li .data_box p{ color:#999;}
+.index_data ul li h2{ font-weight:normal;}
+.index_data ul li h2 span{ font-size:1.4rem;}
+
+/*运营时间*/
+.operating_time{ padding:2rem 0 0 0; text-align:center; color:#a0a1a9; font-size:1.2rem; line-height:1.6rem;}
+.operating_time span{ color:#ff7701; border:1px solid #4a4b5b; padding:0.2rem 0.4rem; border-radius:4px; margin:0 2px; display:inline-block;}
+.operating_time h2{ font-size:1.2rem; color:#222; line-height:3rem; font-weight:normal;}
+.operating_time b{ font-weight: normal;}
+
+/*资质*/
+.index_qualification{ padding:1.6rem 0;}
+.index_qualification ul{ margin:0px; padding:0px;}
+.index_qualification ul li{ width:33.3%; float:left;}
+.index_qualification ul li a{ display:block;}
+.index_qualification ul li .li_box{ background:#fff; text-align:center; margin:0 0.5rem; font-size:1rem; line-height:1.4rem; padding:0.8rem 0; border-radius: 3px;}
+.index_qualification ul li .li_box img{ height:2.2rem; padding-bottom:0.3rem;}
+.index_tips{ padding:0 0 1rem 0; text-align:center;}
+.index_tips span{ height:3rem; line-height:3rem; display:inline-block; background:#fff; color:#333; padding:0 1rem; border-radius:1.5rem; font-size: 1rem;}
+
+
+
+
+
+
