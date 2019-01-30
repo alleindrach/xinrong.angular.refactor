@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
     nav: false,
     margin: 0,
     autoplay: true,
-    autoplayTimeout: 550,
+    autoplayTimeout: 3550,
     onChanged: this.onChanged.bind(this)
   };
   curBanner = 1;

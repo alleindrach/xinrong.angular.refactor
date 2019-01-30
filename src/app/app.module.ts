@@ -1,6 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { MaterialModuleModule } from './material-module/material-module.module';
+// import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+// import { MatTableModule, MatIconModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,9 +14,10 @@ import { CommonModule } from '@angular/common';
 import { InvestComponent } from './invest/invest.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import {  ServerTimeInterceptor } from './server.time.interceptor';
+import { ServerTimeInterceptor } from './server.time.interceptor';
 
-import {  CommafyCNPipe } from './commafy-cn.pipe';
+import { CommafyCNPipe } from './commafy-cn.pipe';
+import { Scroll } from '@angular/router';
 
 /** Http interceptor providers in outside-in order */
 export const httpInterceptorProviders = [
@@ -32,6 +35,10 @@ export const httpInterceptorProviders = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MaterialModuleModule,
+    // ScrollDispatchModule,
+    // MatTableModule,
+    // MatIconModule,
     OwlModule,
     HttpClientModule,
     CommonModule

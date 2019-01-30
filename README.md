@@ -136,7 +136,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     原因1：W3C的 xhr 标准中做了限制，规定客户端无法获取 response 中的 Set-Cookie、Set-Cookie2这2个字段，无论是同域还是跨域请求；
 
     原因2：W3C 的 cors 标准对于跨域请求也做了限制，规定对于跨域请求，客户端允许获取的response header字段只限于“simple response header”和“Access-Control-Expose-Headers” （两个名词的解释见下方）
-
+    https://segmentfault.com/a/1190000004322487
     关于CORB，参见 https://zhuanlan.zhihu.com/p/43630627
     解决的方法 https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome
 
@@ -185,6 +185,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
               this.hotSectionLoan.flag = 1;
             }
           );
+
+       管道 
+          ng generate pipe pipename
 
 2 使用ui库
 

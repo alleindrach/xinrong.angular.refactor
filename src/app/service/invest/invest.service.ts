@@ -4,11 +4,16 @@ import { map, catchError, filter, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Config } from '../../config';
 import { environment } from 'src/environments/environment';
+import { SectionList } from './section.list';
 @Injectable({
   providedIn: 'root'
 })
 export class InvestService {
-
+  static PrimarySection = 1;
+  static SubprimeSection = 2;
+  static EscrowDirSection = 3;
+  static TongRenSection = 4;
+  static TransferSection = 5;
   constructor(private http: HttpClient) { }
   getHotSection$(): Observable<any> {
     return this.http.get<JSON>(environment.baseUrl + '/v2/project/get_available_sectioin_by_surplus_money.jso', { observe: 'response' })
@@ -34,6 +39,33 @@ export class InvestService {
       );
     // catchError(this.handleError('getHotSection', []))
     // );
+  }
+  getSections$(type: number, page: number, size: number): Observable<SectionList> {
+    let destUrl;
+    switch (type) {
+      case InvestService.PrimarySection:
+        destUrl = environment.baseUrl + '/v2/project/obtain_big_section_list.jso';
+        break;
+      case InvestService.SubprimeSection:
+        destUrl = environment.baseUrl + '/v2/project/obtain_small_section_list.jso';
+        break;
+      case InvestService.EscrowDirSection:
+        destUrl = environment.baseUrl + '/v2/project/obtain_manual_escrow_section_list.jso';
+        break;
+      case InvestService.TongRenSection:
+        destUrl = environment.baseUrl + '/v2/project/obtain_available_tongren_section_list.jso';
+        break;
+      case InvestService.TransferSection:
+        destUrl = environment.baseUrl + '/v2/project/obtain_brand_section_list.jso';
+        break;
+      default:
+        destUrl = environment.baseUrl + '/v2/project/obtain_big_section_list.jso';
+    }
+    return this.http.get<SectionList>(destUrl,
+      {
+        params: { 'pageSize': size.toString(), 'pageIndex': page.toString() }
+      });
+
   }
   getTotalTransactionMoney$(): Observable<JSON> {
     return this.http.get<JSON>(environment.baseUrl + '/v2/transaction/total_transaction_money.jso').pipe(
