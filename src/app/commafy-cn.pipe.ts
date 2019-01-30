@@ -11,7 +11,6 @@ export class CommafyCNPipe implements PipeTransform {
     let n = options['precise'];
     // const option = args['options'];
     n = n >= 0 && n <= 20 ? n : 2;
-  
     const s = parseFloat((value + '').replace(/[^\d\.-]/g, '')).toFixed(n) + ''; //精度
     const l = s.split('.')[0].split(''),
       r = s.split('.')[1];//remind
