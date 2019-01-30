@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, catchError, filter, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Config } from '../../config';
+import { Utilities } from '../../utilities';
 import { environment } from 'src/environments/environment';
 import { SectionList } from './section.list';
 @Injectable({
@@ -96,47 +96,6 @@ export class InvestService {
   }
   private log(message: string) {
     // this.messageService.add(`HeroService: ${message}`);
-  }
-
-
-  loanType2Name(loanType: number, conSn: string): string {
-    let loanTypeStr = '';
-    try {
-      if (loanType === 1) {
-        loanTypeStr = '信·无忧贷';
-      } else if (loanType === 2) {
-        loanTypeStr = '信·优企贷';
-      } else if (loanType === 3) {
-        loanTypeStr = '信·赎楼贷';
-      } else if (loanType === 4 || loanType === 7 || loanType === 11) {
-        loanTypeStr = '信·消费贷';
-      } else if (loanType === 5) {
-        loanTypeStr = '信·精选贷';
-      } else if (loanType === 6) {
-        loanTypeStr = '信·质抵贷';
-      } else if (loanType === 8) {
-        loanTypeStr = '品·融360';
-      } else if (loanType === 9) {
-        loanTypeStr = '品·吉屋网' + conSn.substring(3, 9) + '系列';
-      } else if (loanType === 10) {
-        loanTypeStr = '信·优资贷';
-      } else if (loanType === 12) {
-        loanTypeStr = '品·保理贷';
-      } else if (loanType === 13) {
-        loanTypeStr = '品·分期X';
-      } else if (loanType === 14) {
-        loanTypeStr = '信·消费JS';
-      } else if (loanType === 15) {
-        loanTypeStr = '品·票据贷';
-      } else if (loanType === 16) {
-        // let type_name = conSn.substring(1, 3);
-        loanTypeStr = '信·车贷';
-      } else if (loanType === 17) {
-        loanTypeStr = '品·明特';
-      }
-    } catch (e) {
-    }
-    return loanTypeStr;
   }
 }
 

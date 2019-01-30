@@ -26,4 +26,5 @@ export class Section {
     status: number;
     stime: number;
     transferReward: number;
+    overdueTransfer: number;
 }

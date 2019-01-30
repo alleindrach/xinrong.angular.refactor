@@ -1,0 +1,165 @@
+/*弹层说明*/
+.double_score{ width:100%;}
+.double_score img{ width:100%;}
+
+
+/*排序*/
+.invest_sorting{ width: 100%; border-top: 0.06rem solid #f0f0f0;}
+.invest_sorting ul{ width: 100%; background: #fff;}
+.invest_sorting ul li{ width: 33%; height: 36px; line-height: 36px; text-align: center; font-size: 0.9em; color: #888; float: left; position: relative;}
+.invest_sorting ul li .f-icon{ width: 6px; line-height: 7px; font-size: 0.6em; display: inline-block; vertical-align: middle; margin:0 0px 2px 4px;}
+.invest_sorting ul li .f-icon i{ width: 6px; color: #e0dfe4; display: inline-block; padding-bottom: 1px; font-style: normal;}
+.invest_sorting ul li.cur{ color: #f60;}
+.invest_sorting ul li.cur .f-icon i.cur{ color: #f60;}
+.invest_sorting ul li.bor:after{ content:''; height:23px; border-right:1px solid #f2f2f2; position:absolute; top:6px; right:0px;}
+
+.pro_onekey{ width:100%; background:#fff; border-top: 0.06rem solid #f0f0f0;}
+.pro_onekey dl{ padding:0 0.5rem; line-height:4.2rem;}
+.pro_onekey dt{ float:left;}
+.pro_onekey dd{ float:right; padding-top:0rem;}
+.pro_onekey dd .sub02{ width:7.6rem; height:2.3rem; line-height:2.3rem; background:#fac334; border-radius: 1.4rem; font-size: 1.2rem;}
+.pro_onekey dd .sub03{ width:7.6rem; height:2.3rem; line-height:2.3rem; border-radius: 1.4rem; font-size: 1.2rem;}
+.pro_onekey dd .iconwen{ padding-left:0px; color: #c7c7c6; border:1px solid #c7c7c6; background:#fff; vertical-align:middle;}
+.tabscontent{
+  height:100%;
+}
+.bids-viewport{
+  height: 100%;
+  width: 100%;
+}
+
+.bid-wrapper {
+  height: 100%;
+}
+
+/*项目列表*/
+.bid_box{ width:100%; background:#fff; margin-top:5px; position:relative;}
+.bid_box h1{ font-weight:normal; padding:0 0.5rem; height:3.6rem; line-height:3.6rem;}
+.bid_box h1 i{ margin: 0 .1rem .3rem .1rem;}
+.bid_box ul{ width: auto; padding:0.8rem 1rem 0.3rem 1rem;}
+.bid_box ul li{ width:34%; color:#b1b0b8; line-height:2rem; font-size:1rem; padding: 0; min-height: auto; float:left;}
+.bid_box ul li h2{ height:3rem; line-height:3rem; color:#fb822d; font-size:2.6rem; font-weight:normal;}
+.bid_box ul li h2 span{ font-size:1.4rem;}
+.bid_box ul li h2 .reward{ height:1.4rem; line-height:1.4rem; background:#4a4b5c; color:#fff; font-size:0.8rem; display:inline-block; vertical-align:middle; border-radius:0.8rem; border-bottom-left-radius:0px; margin-left:-1rem; position:relative; top:-1.4rem; padding:0 0.3rem;}
+.bid_box ul li h3{ height:3rem; line-height:3rem; color:#4a4b5c; font-size:2rem; font-weight:normal;}
+.bid_box ul li h3 span{ font-size:1rem;}
+.bid_box ul li.w02{ width:30%; text-align:center;}
+
+.bid_box .pro_sub{ width:8rem; position:absolute; right:1rem; top:4.9rem; font-size:1.1rem;}
+.bid_box .pro_sub .sub03,.bid_box .pro_sub .sub02,.bid_box .pro_sub .sub01{ height:2.5rem; line-height:2.5rem; border-radius: 1.3rem;}
+
+.bid_box .box_font{ height:3rem; line-height:3rem; color:#999; padding:0 1rem; font-size:1.1rem;}
+.bid_box .box_font b{ font-weight:normal; color:#4a4b5c;}
+.bid_loadding
+{
+  height: 70px;
+}
+.loader {
+	display: inline-block;
+	font-size: 0px;
+	padding: 18px 0px;
+  
+  text-align: center;
+	height: 100%;
+	width:100%;
+	line-height: 20px;
+	color: #888;
+  font-family: Arial, Microsoft YaHei;
+  display:block;
+}
+.loader .label{
+	display: inline-block;
+	text-align:center;
+	width:100%;
+	display: block;
+  float:left;
+  font-size: 12px
+}
+.loader span {
+	vertical-align: middle;
+	border-radius: 100%;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 0 2px;
+	-webkit-animation: loader 0.8s linear infinite alternate;
+	animation: loader 0.8s linear infinite alternate;
+}
+.loader span:nth-child(1) {
+	-webkit-animation-delay: -1s;
+	animation-delay: -1s;
+	background: rgba(245, 103, 115,0.6);
+}
+.loader span:nth-child(2) {
+	-webkit-animation-delay: -0.8s;
+	animation-delay: -0.8s;
+	background: rgba(245, 103, 115,0.8);
+}
+.loader span:nth-child(3) {
+	-webkit-animation-delay: -0.26666s;
+	animation-delay: -0.26666s;
+	background: rgba(245, 103, 115,1);
+}
+.loader span:nth-child(4) {
+	-webkit-animation-delay: -0.8s;
+	animation-delay: -0.8s;
+	background: rgba(245, 103, 115,0.8);
+}
+.loader span:nth-child(5) {
+	-webkit-animation-delay: -1s;
+	animation-delay: -1s;
+	background: rgba(245, 103, 115,0.4);
+}
+@keyframes loader {
+  from {
+ transform: scale(0, 0);
+ }
+ to {
+   transform: scale(1.5, 1.5);
+ }
+ }
+ @-webkit-keyframes loader {
+  from {
+ -webkit-transform: scale(0, 0);
+ }
+ to {
+   -webkit-transform: scale(1.5, 1.5);
+ }
+ }
+
+html,body {
+  height:100%;
+  margin: 0;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+.mat-tab-group{
+  height:100%;
+}
+.mat-tab-label {
+  padding: 0 0;
+}
+
+.mat-tab-label-content {
+  font-size: 1rem
+}
+.mat-tab-body-wrapper{
+  height:100%
+}
+// @import '~@angular/material/theming';
+// Include non-theme styles for core.
+// @include mat-core();
+
+// // Define your application's custom theme.
+// $primary: mat-palette($mat-deep-purple);
+// $accent:  mat-palette($mat-pink, 200, 100, 600);
+// $theme: mat-light-theme($primary, $accent);
+
+// // Include theme styles for Angular Material components.
+// @include angular-material-theme($theme);
+
+// @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; 

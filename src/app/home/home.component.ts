@@ -17,6 +17,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import { Utilities } from '../utilities';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -95,8 +96,8 @@ export class HomeComponent implements OnInit {
           timer(1000, 1000).pipe(
             takeWhile(tick => new Date().getTime() / 1000 < this.hotSectionLoan.stime)
           ).subscribe(
-            x => {
-              this.sectionTimer = this.auxService.timeDiff(this.hotSectionLoan.stime, null);
+            () => {
+              this.sectionTimer = Utilities.timeDiff(this.hotSectionLoan.stime, null);
               console.log('min:', this.sectionTimer.min, 'sec', this.sectionTimer.sec);
             },
             undefined,

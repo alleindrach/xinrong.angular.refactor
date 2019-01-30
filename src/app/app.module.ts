@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Scroll } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModuleModule } from './material-module/material-module.module';
-// import { ScrollDispatchModule } from '@angular/cdk/scrolling';
-// import { MatTableModule, MatIconModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OwlModule } from 'ngx-owl-carousel';
-import { HttpClientModule } from '@angular/common/http';
 import { Loantype2namePipe } from './service/invest/loantype2name.pipe';
-import { CommonModule } from '@angular/common';
-import { InvestComponent } from './invest/invest.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { BidsComponent } from './invest/bids/bids.component';
 import { ServerTimeInterceptor } from './server.time.interceptor';
-
 import { CommafyCNPipe } from './commafy-cn.pipe';
-import { Scroll } from '@angular/router';
+import { SectionShowPipe } from './service/invest/section-show.pipe';
+import { InvestComponent } from './invest/invest/invest.component';
+import { BidDetailComponent } from './invest/bid.detail/bid.detail.component';
+import { MillionShowPipe } from './million-show.pipe';
+import { BidTabsComponent } from './invest/bid.tabs/bid.tabs.component';
+
 
 /** Http interceptor providers in outside-in order */
 export const httpInterceptorProviders = [
@@ -28,17 +30,19 @@ export const httpInterceptorProviders = [
     AppComponent,
     HomeComponent,
     Loantype2namePipe,
+    BidsComponent,
+    CommafyCNPipe,
+    SectionShowPipe,
     InvestComponent,
-    CommafyCNPipe
+    BidDetailComponent,
+    MillionShowPipe,
+    BidTabsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModuleModule,
-    // ScrollDispatchModule,
-    // MatTableModule,
-    // MatIconModule,
     OwlModule,
     HttpClientModule,
     CommonModule
