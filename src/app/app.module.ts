@@ -23,6 +23,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { DiscoveryComponent } from './component/discovery/discovery.component';
 import { BannerComponent } from './component/banner/banner.component';
 import { GoodShowPipe } from './common/pipe/good-show.pipe';
+import { AccountComponent } from './account/account.component';
 
 
 /** Http interceptor providers in outside-in order */
@@ -44,7 +45,8 @@ export const httpInterceptorProviders = [
     NavbarComponent,
     DiscoveryComponent,
     BannerComponent,
-    GoodShowPipe
+    GoodShowPipe,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
