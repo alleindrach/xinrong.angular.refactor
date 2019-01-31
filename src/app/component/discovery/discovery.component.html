@@ -1,0 +1,48 @@
+<app-banner [banners]="banners"></app-banner>
+
+<!--页面跳转-->
+<div class="found_nav">
+    <ul>
+        <li><a href="/call" class="no-right" id="xr_call">
+                <p><img src="../../assets/images/icons/18.png" /></p>
+                <h2>朵朵来电</h2>
+            </a></li>
+        <li><a href="/lottery">
+                <p><img src="../../assets/images/icons/19.png" /></p>
+                <h2>抽奖</h2>
+            </a></li>
+        <li><a href="/store">
+                <p><img src=".../../assets/images/icons/20.png" /></p>
+                <h2>积品汇</h2>
+            </a></li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
+<div class="black5"></div>
+<!--热门兑换-->
+<ng-container *ngIf="goodsInfo && goodsInfo.data">
+    <div class="found_hot_gift">
+        <h1><i></i>热门兑换 <a href="/store" class="more">更多></a></h1>
+        <div class="gift_list">
+            <ul class="goods_wrapper">
+                <ng-container *ngFor=" let good of goodsInfo.data; let i=index; ">
+                    <li *ngIf="i<maxGoodCount" class="bor_item" [innerHtml]="good|goodShow">
+                    </li>
+                </ng-container>
+
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</ng-container>
+<div class="black5"></div>
+<!--信融月刊-->
+<div class="found_monthly">
+    <h1><i></i>信融月刊 <a href="/about/month');" class="more">更多></a></h1>
+    <div><img src=".../../assets/images/about/monthly/47.jpg" /></div>
+    <h2>《信 融》 2018年NO.11期 <a href="https://mp.weixin.qq.com/s/FxPB_KfYVWT1F2GJ9nSntQ" class="orange f-h">查看</a></h2>
+</div>
+<div class="black10"></div>
+<div class="black50"></div>
+<app-navbar [active]=2></app-navbar>
+<router-outlet></router-outlet>

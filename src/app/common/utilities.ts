@@ -1,7 +1,13 @@
 import { DecimalPipe } from '@angular/common';
-import { Section } from './service/invest/section';
+import { Section } from '../model/section';
+import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
+import { LocalstorageService } from '../service/db/localstorage.service';
 
 export class Utilities {
+   static VIP_RATE = [1.00, 0.98, 0.98, 0.95, 0.92, 0.90, 0.88, 0.85, 0.82, 0.80];
+   constructor() {
+
+   }
    static toCent(value: number, precise: number): String {
       if (!Math.sign) {
          Math.sign = function (x: number) {
@@ -187,7 +193,7 @@ export class Utilities {
          html += '<i class="zhitou" title="可用普通账户资金投资">直投</i>';
       }
       if (loan.f8 != null && loan.f8 > 0) {
-         html += '<i class="one_to_one"><img src="../../images/1b1.png"></i>';
+         html += '<i class="one_to_one"><img src="../../assets/images/1b1.png"></i>';
       }
       if (true) {
          html += '<i class="fengxian" title="项目等级分为：AAA、AA、A、BBB、BB、B、CCC、CC、C、DDD、DD、D，从AAA到D风险依次上升。">AA</i>';
@@ -198,5 +204,20 @@ export class Utilities {
             })
         }*/
       return html;
+   }
+   // 计算当前vip，兑换商品所需的积分
+   static countVipScore(score: number, vip: number = 0): string {
+      let rate = 1;
+      try {
+         rate = Utilities.VIP_RATE[vip];
+      } catch (e) {
+
+      }
+      if (score > 100) {
+         return Math.floor(score * rate / 100) / 100 + '万分';
+      } else {
+         return Math.floor(score * rate) + '分';
+
+      }
    }
 }

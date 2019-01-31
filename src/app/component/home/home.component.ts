@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
-import { Banner } from '../service/aux/banner';
+import { Banner } from '../../model/banner';
 import * as $ from 'jquery';
 import { of, from, Observable, interval, timer } from 'rxjs';
 import { map, take, takeWhile } from 'rxjs/operators';
 import { OwlCarousel } from 'ngx-owl-carousel';
 import { ViewChild, ViewEncapsulation } from '@angular/core';
-import { AuxService } from '../service/aux/aux.service';
-import { InvestService } from '../service/invest/invest.service';
+import { AuxService } from '../../service/aux/aux.service';
+import { InvestService } from '../../service/invest/invest.service';
 import { AjaxResponse } from 'rxjs/ajax';
 import {
   trigger,
@@ -17,7 +17,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
-import { Utilities } from '../utilities';
+import { Utilities } from '../../common/utilities';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -48,16 +48,6 @@ export class HomeComponent implements OnInit {
   ];
 
 
-  bannerOptions = {
-    dots: false, items: 1,
-    loop: true,
-    nav: false,
-    margin: 0,
-    autoplay: true,
-    autoplayTimeout: 3550,
-    onChanged: this.onChanged.bind(this)
-  };
-  curBanner = 1;
   sectionTimer = null;
   transactionInfo = null;
   transactionSummaryInfo = null;
@@ -166,10 +156,7 @@ export class HomeComponent implements OnInit {
   next(): void {
     this.owlElement.next([200]);
   }
-  onChanged(event): void {
-    this.curBanner = event.item.index % (event.item.count) + 1;
 
-  }
   goInvest(sid: number): void {
 
   }

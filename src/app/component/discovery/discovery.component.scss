@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+/*banner*/
+.index_banner{ width:100%; position:relative;}
+.index_banner .banner_number{ padding:0 0.5rem; background:rgba(0,0,0,.3); color:#fff; font-size:1rem; position:absolute; right:1rem; top:0.5rem; z-index:3; border-radius:0.9rem; height:1.4rem; line-height:1.4rem;}
+.owl-controls{ display:none;}
+
+/*页面跳转*/
+.found_nav{ background:#fff; padding:1.5rem 0 1rem 0;}
+.found_nav ul{ width:100%; padding:0px; margin:0px;}
+.found_nav ul li{ width:33.3%; text-align:center; line-height:2.6rem; float:left;}
+.found_nav ul li a{ display:block;}
+.found_nav ul li img{ height:2.4rem;}
+.found_nav ul li h2{ font-weight:normal; font-size:1.1rem;}
+
+/*热门兑换*/
+.found_hot_gift{ width:100%; background:#fff;}
+
+.found_hot_gift h1{ padding:0 1rem; line-height:3.6rem; font-weight:normal; font-size:1.4rem; position:relative;}
+.found_hot_gift h1 i{ width:6px; height:6px; background:#fff; border:3px solid #ff8601; display:inline-block; border-radius:50%; margin:0 5px 3px 0; vertical-align:middle;}
+.found_hot_gift h1 .more{ position:absolute; right:10px; top:0px; font-size:1rem; color:#adaeb9;}
+.found_hot_gift .gift_list{ width:100%; height: 13.8rem; display: -webkit-box; overflow-x: scroll; -webkit-overflow-scrolling:touch;}
+.found_hot_gift .gift_list::-webkit-scrollbar { display: none;}
+.found_hot_gift .gift_list ul{ margin:0px; padding:0px;width: 60rem}
+.found_hot_gift .gift_list ul li{ width:10rem; padding:1rem 1rem; text-align:center; float:left;}
+.found_hot_gift .gift_list ul li a{ display:block;}
+.found_hot_gift .gift_list ul li img{ width:80%;}
+.found_hot_gift .gift_list ul li h2{ width:100%; height:1.6rem; line-height:1.6rem; border:1px solid #4a4b5b; border-radius:3px; font-weight:normal; font-size:1rem; margin-top: 1.5rem;display: -webkit-flex; display: flex; display: -webkit-box; display: -moz-box; display: -ms-flexbox;}
+.found_hot_gift .gift_list ul li h2 .f-money{ width:50%; display:block; text-align:center;}
+.found_hot_gift .gift_list ul li h2 .f-jf{ width:50%; display:block; text-align:center; background:#4a4b5b; color:#fff;}
+
+/*信融月刊*/
+.found_monthly{ width:100%; background:#fff;}
+.found_monthly h1{ padding:0 1rem; line-height:3.6rem; font-weight:normal; font-size:1.4rem; position:relative;}
+.found_monthly h1 i{ width:6px; height:6px; background:#fff; border:3px solid #ff8601; display:inline-block; border-radius:50%; margin:0 5px 3px 0; vertical-align:middle;}
+.found_monthly h1 .more{ position:absolute; right:10px; top:0px; font-size:1rem; color:#adaeb9;}
+.found_monthly div{ height: 13rem; overflow: hidden;}
+.found_monthly img{ width:100%;}
+.found_monthly h2{ background:#fff; height:3rem; line-height:3rem; padding:0 1rem; font-weight:normal; position:relative;}
+.found_monthly h2 .f-h{ position:absolute; right:1rem; top:0px;}
+
+
+

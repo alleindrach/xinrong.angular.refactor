@@ -1,0 +1,58 @@
+<!--导航-->
+<div class="h-m-nav">
+  <ul>
+    <li class="{{active===0?'cur':''}}">
+      <a routerLink="/">
+        <span>
+          <ng-container *ngIf="active===0">
+            <img src="../../assets/images/icons/04.png" />
+          </ng-container>
+          <ng-container *ngIf="active!==0">
+            <img src="../../assets/images/icons/03.png" />
+          </ng-container>
+        </span>
+        <h1>首页</h1>
+      </a>
+    </li>
+    <li class="{{active===1?'cur':''}}">
+      <a routerLink="/bids/0">
+        <span>
+          <ng-container *ngIf="active===1">
+            <img src="../../assets/images/icons/06.png" />
+          </ng-container>
+          <ng-container *ngIf="active!==1">
+            <img src="../../assets/images/icons/05.png" />
+          </ng-container>
+        </span>
+        <h1>投资</h1>
+      </a>
+    </li>
+    <li class="{{active===2?'cur':''}}">
+      <a routerLink="/discovery">
+        <span>
+          <ng-container *ngIf="active===2">
+            <img src="../../assets/images/icons/08.png" />
+          </ng-container>
+          <ng-container *ngIf="active!==2">
+            <img src="../../assets/images/icons/07.png" />
+          </ng-container>
+        </span>
+        <h1>发现</h1>
+      </a>
+    </li>
+    <li class="{{active===3?'cur':''}}">
+      <a routerLink="/account">
+        <span>
+          <ng-container *ngIf="active===3">
+            <img src="../../assets/images/icons/10.png" />
+          </ng-container>
+          <ng-container *ngIf="active!==3">
+            <img src="../../assets/images/icons/09.png" />
+          </ng-container>
+        </span>
+        <h1>我的</h1>
+      </a>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

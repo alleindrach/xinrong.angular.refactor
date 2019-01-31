@@ -1,4 +1,4 @@
-<div class="index_banner">
+<!-- <div class="index_banner">
   <span class="banner_number"><span id="cur_img">{{curBanner}}</span> / <span id="total_img">{{banners.length}}</span></span>
   <div class="banner_list">
     <owl-carousel #owlElement [options]="bannerOptions" [carouselClasses]="['owl-theme', 'sliding']" [items]="bannerImages">
@@ -11,7 +11,8 @@
       </div>
     </owl-carousel>
   </div>
-</div>
+</div> -->
+<app-banner [banners]="banners"></app-banner>
 <!--公告-->
 <div class="i-s-announ">
   <div class="announ_img lef"><img src="../../assets/images/h_01.png" /></div>
@@ -187,21 +188,5 @@
 <div class="index_tips"><span>市场有风险，投资需谨慎  查看<a href="agreement/risk_message_invest.html" class="orange">《风险报告书》</a></span></div>
 <div class="black50"></div>
 <!--导航-->
-<div class="h-m-nav">
-    <ul>
-        <li class="cur"><a href="index.html"><span><img src="../../assets/images/icons/04.png" /></span>
-            <h1>首页</h1>
-        </a></li>
-        <li><a href="invest/invest_list.html"><span><img src="../../assets/images/icons/05.png" /></span>
-            <h1>投资</h1>
-        </a></li>
-        <li><a href="found.html"><span><img src="../../assets/images/icons/07.png" /></span>
-            <h1>发现</h1>
-        </a></li>
-        <li><a href="account/account.html"><span><img src="../../assets/images/icons/09.png" /></span>
-            <h1>我的</h1>
-        </a></li>
-    </ul>
-</div>
-
+<app-navbar [active]=0></app-navbar>
 <router-outlet></router-outlet>

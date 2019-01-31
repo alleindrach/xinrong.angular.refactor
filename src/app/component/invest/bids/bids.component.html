@@ -1,14 +1,14 @@
-<mat-tab-group [disableRipple]=true [selectedIndex]=0>
+<mat-tab-group [disableRipple]=true [selectedIndex]="activeTab">
 
-  <mat-tab>
+  <mat-tab *ngFor="let tab of tabs; let i = index">
     <ng-template mat-tab-label>
       <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
-      债权转让
+      <span>{{tab.label}}</span>
     </ng-template>
     <ng-container *ngIf="doubleScore">
       <div class="double_score"><img src="../../assets/images/sb_pic.jpg"></div>
     </ng-container>
-    <ng-container *ngIf="ds5.itemCount>0">
+    <ng-container *ngIf="tab.dataSource">
       <div class="invest_sorting">
         <ul>
           <li (click)="changeInvestOrder(1)" class="investOrder investOrder12">往期年化<span class="f-icon"><i class="investOrder investOrder2">▲</i><i
@@ -24,28 +24,28 @@
         <div class="pro_onekey" id="onekey_invest_view2">
           <dl>
             <dt>该系列可投：<span class="orange">
-                <ng-container *ngIf="ds5.sectionsInfo">
-                  {{ds5.sectionsInfo.leftAmount|millionShow}}
+                <ng-container *ngIf="tab.dataSource.sectionsInfo">
+                  {{tab.dataSource.sectionsInfo.leftAmount|millionShow}}
                 </ng-container>
-            </span></dt>
+              </span></dt>
             <dd><a href="javascript:void(0)" class="sub02" id="onekey_btn2">一键投资</a><i class="iconwen">?</i></dd>
             <div class="clearfix"></div>
           </dl>
         </div>
         <cdk-virtual-scroll-viewport itemSize=14 class="bids-viewport">
-          <div *cdkVirtualFor="let item of ds5" class="bid-wrapper">
+          <div *cdkVirtualFor="let item of tab.dataSource;let i=index;" class="bid-wrapper">
             <ng-container *ngIf="item">
               <div [innerHtml]="item|sectionShow"></div>
             </ng-container>
-            <ng-container *ngIf="!item">
+            <ng-container *ngIf="!item && tab.dataSource && i < tab.dataSource.itemCount">
               <div class='bid_box bid_loadding'>
                 <div class='loader' style="display:block">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <div class="label">努力加载中...</div>
-              </div>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <div class="label">努力加载中...</div>
+                </div>
               </div>
             </ng-container>
           </div>
@@ -54,62 +54,63 @@
 
     </ng-container>
   </mat-tab>
+  <!--
   <mat-tab>
-    <ng-template mat-tab-label>
-      <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
-      消费贷等
-    </ng-template>
-    <!-- <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport">
+    <ng-template mat-tab-label> -->
+  <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
+  <!-- 消费贷等
+    </ng-template> -->
+  <!-- <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport">
       <div *cdkVirtualFor="let item of ds1" class="example-item">{{item.id || '加载中...'}}</div>
     </cdk-virtual-scroll-viewport> -->
-    <ng-container *ngIf="doubleScore">
+  <!-- <ng-container *ngIf="doubleScore">
       <div class="double_score"><img src="../../assets/images/sb_pic.jpg"></div>
     </ng-container>
     containter1
-  </mat-tab>
+  </mat-tab> -->
 
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
-      优企贷等
+  <!-- <mat-tab>
+    <ng-template mat-tab-label> -->
+  <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
+  <!-- 优企贷等
     </ng-template>
     <ng-container *ngIf="doubleScore">
       <div class="double_score"><img src="../../assets/images/sb_pic.jpg"></div>
-    </ng-container>
-    <!-- <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport">
+    </ng-container> -->
+  <!-- <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport">
       <div *cdkVirtualFor="let item of ds2" class="example-item">{{item.id || '加载中...'}}</div>
     </cdk-virtual-scroll-viewport> -->
-    containter2
+  <!-- containter2
   </mat-tab>
 
   <mat-tab>
-    <ng-template mat-tab-label>
-      <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
-      铜仁专区
+    <ng-template mat-tab-label> -->
+  <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
+  <!-- 铜仁专区
     </ng-template>
     <ng-container *ngIf="doubleScore">
       <div class="double_score"><img src="../../assets/images/sb_pic.jpg"></div>
-    </ng-container>
-    <!-- <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport">
+    </ng-container> -->
+  <!-- <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport">
       <div *cdkVirtualFor="let item of ds3" class="example-item">{{item.id || '加载中...'}}</div>
     </cdk-virtual-scroll-viewport> -->
-    containter3
+  <!-- containter3
   </mat-tab>
   <mat-tab>
-    <ng-template mat-tab-label>
-      <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
-      存管直投
+    <ng-template mat-tab-label> -->
+  <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
+  <!-- 存管直投
     </ng-template>
     <ng-container *ngIf="doubleScore">
       <div class="double_score"><img src="../../assets/images/sb_pic.jpg"></div>
-    </ng-container>
-    <!-- <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport">
+    </ng-container> -->
+  <!-- <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport">
       <div *cdkVirtualFor="let item of ds3" class="example-item">{{item.id || '加载中...'}}</div>
     </cdk-virtual-scroll-viewport> -->
-    containter3
+  <!-- containter3
   </mat-tab>
-
+ -->
 </mat-tab-group>
 
-
+<app-navbar [active]=1></app-navbar>
 <router-outlet></router-outlet>

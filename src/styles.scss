@@ -3,6 +3,11 @@
 /* CSS Document */
 /* 禁用iPhone中Safari的字号自动调整 */
 html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; /* 解决IOS默认滑动很卡的情况 */ -webkit-overflow-scrolling : touch;}
+/*banner*/
+.index_banner{ width:100%;margin:0; position: relative; left:0px;top:0px;}
+.index_banner .banner_number{ padding:0 0.5rem; background:rgba(0,0,0,.3); color:#fff; font-size:1rem; position:absolute; right:1rem; top:0.5rem; z-index:3; border-radius:0.9rem; height:1.4rem; line-height:1.4rem;}
+.owl-controls{ display:none;}
+
 /* 禁止缩放表单 */
 input[type="submit"], input[type="reset"], input[type="button"], input { resize: none; border: none;}
 input{ -webkit-appearance: none; outline: none;}

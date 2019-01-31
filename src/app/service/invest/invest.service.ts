@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, catchError, filter, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Utilities } from '../../utilities';
+import { Utilities } from '../../common/utilities';
 import { environment } from 'src/environments/environment';
-import { SectionList } from './section.list';
+import { SectionList } from '../../model/section.list';
 @Injectable({
   providedIn: 'root'
 })

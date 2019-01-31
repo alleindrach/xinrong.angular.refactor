@@ -8,17 +8,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModuleModule } from './material-module/material-module.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './component/home/home.component';
 import { OwlModule } from 'ngx-owl-carousel';
-import { Loantype2namePipe } from './service/invest/loantype2name.pipe';
-import { BidsComponent } from './invest/bids/bids.component';
+import { Loantype2namePipe } from './common/pipe/loantype2name.pipe';
+import { BidsComponent } from './component/invest/bids/bids.component';
 import { ServerTimeInterceptor } from './server.time.interceptor';
-import { CommafyCNPipe } from './commafy-cn.pipe';
-import { SectionShowPipe } from './service/invest/section-show.pipe';
-import { InvestComponent } from './invest/invest/invest.component';
-import { BidDetailComponent } from './invest/bid.detail/bid.detail.component';
-import { MillionShowPipe } from './million-show.pipe';
-import { BidTabsComponent } from './invest/bid.tabs/bid.tabs.component';
+import { CommafyCNPipe } from './common/pipe/commafy-cn.pipe';
+import { SectionShowPipe } from './common/pipe/section-show.pipe';
+import { InvestComponent } from './component/invest/invest/invest.component';
+import { BidDetailComponent } from './component/invest/bid.detail/bid.detail.component';
+import { MillionShowPipe } from './common/pipe/million-show.pipe';
+import { BidTabsComponent } from './component/invest/bid.tabs/bid.tabs.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { DiscoveryComponent } from './component/discovery/discovery.component';
+import { BannerComponent } from './component/banner/banner.component';
+import { GoodShowPipe } from './common/pipe/good-show.pipe';
 
 
 /** Http interceptor providers in outside-in order */
@@ -36,16 +40,20 @@ export const httpInterceptorProviders = [
     InvestComponent,
     BidDetailComponent,
     MillionShowPipe,
-    BidTabsComponent
+    BidTabsComponent,
+    NavbarComponent,
+    DiscoveryComponent,
+    BannerComponent,
+    GoodShowPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModuleModule,
     OwlModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   providers: [
     httpInterceptorProviders

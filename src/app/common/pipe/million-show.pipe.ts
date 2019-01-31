@@ -9,7 +9,7 @@ export class MillionShowPipe implements PipeTransform {
     if (value > 1000000) {
       return '100+万元';
     } else {
-      return value.toFixed(2) + '元';
+      return Number(value).toFixed(2) + '元';
     }
   }
 

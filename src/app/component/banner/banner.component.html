@@ -1,0 +1,14 @@
+<div class="index_banner">
+  <span class="banner_number"><span id="cur_img">{{curBanner}}</span> / <span id="total_img">{{banners.length}}</span></span>
+  <div class="banner_list">
+    <owl-carousel #owlElement [options]="bannerOptions" [carouselClasses]="['owl-theme', 'sliding']" [items]="bannerImages">
+      <div class="item article" *ngFor="let banner of banners;let i = index">
+        <div>
+          <a [href]="banner.url">
+            <img [src]="banner.image" />
+          </a>
+        </div>
+      </div>
+    </owl-carousel>
+  </div>
+</div>

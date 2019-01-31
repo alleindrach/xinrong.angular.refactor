@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Section } from './section';
-import { Utilities } from '../../utilities';
+import { Section } from '../../model/section';
+import { Utilities } from '../../common/utilities';
 
 @Pipe({
   name: 'sectionShow'

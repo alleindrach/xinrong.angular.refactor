@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { InvestService } from './invest.service';
-import { Utilities} from '../../utilities';
+import { Utilities} from '../../common/utilities';
 @Pipe({
   name: 'loantype2name'
 })

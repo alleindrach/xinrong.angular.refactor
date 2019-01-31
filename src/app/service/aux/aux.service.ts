@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { ajax } from 'rxjs/ajax';
 import { Observable, from } from 'rxjs';
 import { map, take, concatAll } from 'rxjs/operators';
-import { AjaxObservable, AjaxResponse } from 'rxjs/internal/observable/dom/AjaxObservable';
-import { Annoncement } from './annoncement';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-
-import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
