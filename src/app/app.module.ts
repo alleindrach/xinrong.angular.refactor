@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { Scroll } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModuleModule } from './material-module/material-module.module';
@@ -19,11 +20,13 @@ import { InvestComponent } from './component/invest/invest/invest.component';
 import { BidDetailComponent } from './component/invest/bid.detail/bid.detail.component';
 import { MillionShowPipe } from './common/pipe/million-show.pipe';
 import { BidTabsComponent } from './component/invest/bid.tabs/bid.tabs.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
+import { NavbarComponent } from './component/general/navbar/navbar.component';
 import { DiscoveryComponent } from './component/discovery/discovery.component';
-import { BannerComponent } from './component/banner/banner.component';
+import { BannerComponent } from './component/general/banner/banner.component';
 import { GoodShowPipe } from './common/pipe/good-show.pipe';
-import { AccountComponent } from './account/account.component';
+import { AccountComponent } from './component/user/account/account.component';
+import { LoginComponent } from './component/user/login/login.component';
+
 
 
 /** Http interceptor providers in outside-in order */
@@ -46,16 +49,18 @@ export const httpInterceptorProviders = [
     DiscoveryComponent,
     BannerComponent,
     GoodShowPipe,
-    AccountComponent
+    AccountComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule ,
     MaterialModuleModule,
     OwlModule,
     HttpClientModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     httpInterceptorProviders

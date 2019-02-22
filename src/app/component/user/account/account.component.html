@@ -1,3 +1,27 @@
-<p>
-  account works!
-</p>
+<div class="account_head account_top" style="display:none;">
+  <dl>
+    <dt><img src="../../assets/images/n_gender.png" id="userLogo" /></dt>
+    <dd><span id="userName">--</span>
+      <a href="/vip" class="blue" style="display:none;" id="buyVip">立即开通VIP</a>
+      <span class="lv" style="display:none;"></span>
+    </dd>
+    <div class="clearfix"></div>
+  </dl>
+  <span class="head_set">
+    <a href="/settings/user">
+      <img src="../../assets/images/icons/21.png" />
+    </a>
+    <a href="/information" class="f-xx">
+      <img src="../../assets/images/icons/22.png" />
+      <i id="dot" style="display: none;"></i>
+    </a>
+  </span>
+</div>
+<!--未登陆-->
+<ng-container *ngIf="!insession">
+  <div class="account_nologin_sub account_top">
+    <a routerLink="/login" class="sub02">登录</a>
+  </div>
+</ng-container>
+<app-navbar [active]=3></app-navbar>
+<router-outlet></router-outlet>

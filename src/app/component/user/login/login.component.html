@@ -1,0 +1,47 @@
+<div class="black50 headerpad"></div>
+<div class="login_logo"><img src="../../assets/images/logo01.png" alt="" /></div>
+<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+  <div class="login_box">
+    <ul>
+      <li>
+        <label for="name_txt"><img src="../../assets/images/icons/72.png" alt="" /></label>
+        <input id="username" name="username" #ctlusername type="text" [(ngModel)]="username"   class="f-input" placeholder="请输入手机号码/用户名">
+        <!-- <span class="txt-error" [hidden]="ctlusername.valid || ctlusername.pristine">用户名或者手机号码不正确<i class="icon iconx">Bb</i></span> -->
+      </li>
+      <li>
+        <label for="pwd_txt"><img src="../../assets/images/icons/73.png" alt="" /></label>
+        <input id="password" name="password" #ctlpassword type="password" [(ngModel)]="password" class="f-input" placeholder="请输入登录密码">
+        <!--<span class="txt-error" style="display: none">请输入8位数以上数字+英文组合<i class="icon iconx">Bb</i></span>-->
+      </li>
+      <ng-container *ngIf="isLoginFailTooMuch">
+        <li id="captcha">
+          <label for="cap_txt">
+            <img src="../../assets/images/icons/74.png" alt="" />
+          </label>
+          <input  id="captcha" name="captcha" #ctlcaptcha type="text"  [(ngModel)]="captcha" id="cap_txt" class="f-input" placeholder="请输入图形验证码">
+          <span class="f-validation" id="cap_span">
+            <img (click)="refreshCaptcha()" [src]="captchaUrl" />
+          </span>
+          <input id ="seed" type="hidden" [value]="seed" />
+          <ng-container *ngIf="!formValid">
+              <i class="icon iconx">Bb</i>{{errorMessage}}
+          </ng-container>
+          
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="login_sub">
+    <div class="f-error red" id="tip_error">
+      <!--<i class="icon iconx">Bb</i> 验证码错误-->
+    </div>
+    <button type="submit" class="sub02" [disabled]="false">登录</button>
+    <div class="f-font">
+      <a href="/register" class="left blue">注册新账号</a>
+      <a href="/resetpassword" class="right">忘记密码?</a>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</form>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,249 @@
+@charset "utf-8";
+/* CSS Document */
+html,
+body {
+  height: 100%;
+}
+
+.login_logo {
+  width: 100%;
+  padding: 20% 0 10% 0;
+  text-align: center;
+}
+.login_logo img {
+  width: 17%;
+}
+
+/*登录*/
+.login_box {
+  padding: 0 1.5rem;
+}
+.login_box ul {
+  width: 100%;
+}
+.login_box ul li {
+  height: 5.6rem;
+  border-bottom: 0.05rem solid #f0f0f0;
+  padding-left: 2.2rem;
+  position: relative;
+}
+.login_box ul li.bor {
+  border-bottom: 0.05rem solid #fc790d;
+}
+.login_box ul li label {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.login_box ul li label img {
+  width: 1.4rem;
+}
+.login_box ul li .f-input {
+  width: 100%;
+  height: 5.4rem;
+  vertical-align: middle;
+  font-size: 1.3rem;
+  color: #333;
+}
+.login_box ul li .f-input:-moz-placeholder,
+textarea:-moz-placeholder {
+  font-size: 1.3rem;
+  color: #999999;
+}
+.login_box ul li .f-input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  font-size: 1.3rem;
+  color: #999999;
+}
+.login_box ul li .f-input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-size: 1.3rem;
+  color: #999999;
+}
+.login_box ul li .f-validation {
+  width: 8.6rem;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  display: block;
+}
+.login_box ul li .f-validation img {
+  width: 100%;
+  height: 3.8rem;
+}
+
+.login_box ul li .txt-error {
+  width: auto;
+  height: 5.5rem;
+  line-height: 5.5rem;
+  color: #fc790d;
+  background: #fff;
+  position: absolute;
+  left: 2.2rem;
+  top: 0;
+  z-index: 9;
+  font-size: 1.3rem;
+  display: block;
+}
+.login_box ul li .txt-error .iconx {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  padding-top: 0px;
+  font-size: 1.2rem;
+  background: #ffecdd;
+  margin: 0 0.6rem;
+  color: #fc790d;
+}
+
+.login_sub {
+  padding: 4.4rem 1.5rem 0 1.5rem;
+  position: relative;
+}
+.login_sub .sub02 {
+  font-size: 1.5rem;
+  border-radius: 1.8rem;
+  background: -webkit-linear-gradient(left, #fc9f0d, #fc790d);
+  background: -o-linear-gradient(left, #fc9f0d, #fc790d);
+  background: -moz-linear-gradient(left, #fc9f0d, #fc790d);
+  background: linear-gradient(left, #fc9f0d, #fc790d);
+}
+.login_sub .f-font {
+  padding: 2rem 0 1rem 0;
+  font-size: 1.3rem;
+}
+.login_sub .f-font .right {
+  color: #999;
+}
+.login_sub .f-error {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
+}
+
+/*重置登录密码*/
+.password_box {
+  padding: 15% 1.5rem 0 1.5rem;
+}
+.password_box ul {
+  width: 100%;
+}
+.password_box ul li {
+  height: 5.6rem;
+  border-bottom: 0.05rem solid #f0f0f0;
+  padding-left: 0;
+  position: relative;
+}
+.password_box ul li.bor {
+  border-bottom: 0.05rem solid #fc790d;
+}
+.password_box ul li .f-input {
+  width: 100%;
+  height: 5.4rem;
+  vertical-align: middle;
+  font-size: 1.3rem;
+  color: #333;
+}
+.password_box ul li .f-input:-moz-placeholder,
+textarea:-moz-placeholder {
+  font-size: 1.3rem;
+  color: #999999;
+}
+.password_box ul li .f-input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  font-size: 1.3rem;
+  color: #999999;
+}
+.password_box ul li .f-input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-size: 1.3rem;
+  color: #999999;
+}
+.password_box ul li .f-validation {
+  width: 8.6rem;
+  text-align: right;
+  font-size: 1.3rem;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  display: block;
+}
+.password_box ul li .f-validation img {
+  width: 100%;
+  height: 3.8rem;
+}
+.password_box ul li .f-validation .valida_sub {
+  width: 100%;
+  height: 3.8rem;
+  line-height: 3.8rem;
+  color: #fc790d;
+  display: block;
+}
+.password_box ul li .f-eyes {
+  width: 1.8rem;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  display: block;
+}
+.password_box ul li .f-eyes img {
+  width: 100%;
+}
+
+.password_box ul li .txt-error {
+  width: auto;
+  height: 5.5rem;
+  line-height: 5.5rem;
+  color: #fc790d;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  font-size: 1.3rem;
+  display: block;
+}
+.password_box ul li .txt-error .iconx {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  padding-top: 0px;
+  font-size: 1.2rem;
+  background: #ffecdd;
+  margin: 0 0.6rem;
+  color: #fc790d;
+}
+
+.password_sub {
+  padding: 4.4rem 1.5rem 0 1.5rem;
+  position: relative;
+}
+.password_sub .sub02 {
+  font-size: 1.5rem;
+  border-radius: 1.8rem;
+  background: -webkit-linear-gradient(left, #fc9f0d, #fc790d);
+  background: -o-linear-gradient(left, #fc9f0d, #fc790d);
+  background: -moz-linear-gradient(left, #fc9f0d, #fc790d);
+  background: linear-gradient(left, #fc9f0d, #fc790d);
+}
+.password_sub .f-error {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
+}

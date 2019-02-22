@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-
+import { IStore } from './istore';
 @Injectable({
   providedIn: 'root'
 })
-export class LocalstorageService {
+export class LocalstorageService implements IStore {
 
   public localStorage: any;
 

@@ -192,15 +192,52 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 2 使用ui库
 
 https://material.angular.cn/guide/getting-started
+    css换为 scss
+    ng config schematics.@schematics/angular:component.styleext scss
+    https://www.jianshu.com/p/3259976b414b
 
+3 使用js库
+    angular.json 增加scripts
+    package.json webpack要增加依赖 npm install xxx --save
+    tsconfig.json ...
 
+    将遗留的js拷贝到src/assets/legacy目录下
+    angular.json  增加 scripts
+    "scripts": [
+             ...
+              "src/assets/legacy/rsa.js"
+            ]
+    在使用到的ts头部增加：
+        declare var RSA: any;
 3 发布
        ng build --prod
        生成到 dist 目录中。
 
 
 
+APPENDIX
+A 配置文件说明
+A.a tsconfig.json 
+typescript 编译器配置
+https://angular.cn/guide/typescript-configuration
+A.b package.json
+webpack配置项
+npm install --save 的项目都记录在此
+A.c angular.json
+angular的配置项
+包含生产环境/开发环境的配置文件的替换
+"configurations": {
+  "production": {
+    "fileReplacements": [
+      {
+        "replace": "src/environments/environment.ts",
+        "with": "src/environments/environment.prod.ts"
+      }
+    ],
+    ...
 
+B angular的依赖注入
+https://www.bbsmax.com/A/gVdn0YQJWl/
 
 
 
