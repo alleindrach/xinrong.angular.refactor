@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://www.xinrong.com',
+  baseUrl: '',
+  // baseUrl: 'https://www.xinrong.com',
   storeImageBaseUrl: 'https://www.xinrong.com/s/images/jipinhui/'
 };
 

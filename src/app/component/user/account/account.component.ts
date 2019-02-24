@@ -18,7 +18,7 @@ export class AccountComponent implements OnInit {
   ngOnInit() {
     this.memberService.insession$().subscribe(
       (result: Session) => {
-        if (result.state === '0') {
+        if (Number(result.state) === 0) {
           this.insession = true;
         }
 

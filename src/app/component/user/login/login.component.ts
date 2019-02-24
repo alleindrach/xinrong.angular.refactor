@@ -105,7 +105,7 @@ export class LoginComponent implements OnInit {
         // )
         .subscribe(
           (result: Result) => {
-            if (result.state === '0') {
+            if (Number(result.state) === 0) {
               this.memberService.getBaseInfo$().subscribe(
                 (user: User) => {
                   if (user.state === 0) {
@@ -117,7 +117,7 @@ export class LoginComponent implements OnInit {
             } else {
               const msg = result.msg;
               this.failedTimes = parseInt(msg.substring(msg.indexOf('登录失败次数：') + 7), 10);
-              if (this.failedTimes >= 3 || result.state === '2010' ) {
+              if (this.failedTimes >= 3 || Number(result.state) === 2010 ) {
                 this.isLoginFailTooMuch = true;
                 this.refreshCaptcha();
               } else {

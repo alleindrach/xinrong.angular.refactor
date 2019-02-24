@@ -214,6 +214,14 @@ https://material.angular.cn/guide/getting-started
        生成到 dist 目录中。
 
 
+4 启动
+4.1 内置命令
+    ng serve
+4.2 依照package.json 的scripts 字段 命令
+    npm start
+4.3 依照angular.json的 配置
+    ng run <project>:<architect>[:configurations] [其他配置]
+
 
 APPENDIX
 A 配置文件说明
@@ -238,6 +246,48 @@ angular的配置项
 
 B angular的依赖注入
 https://www.bbsmax.com/A/gVdn0YQJWl/
+
+C 代理配置，假设将angular的app集成到原有网站的ng目录下
+nginx 配置：
+        location ^~ /ng/ {
+                proxy_connect_timeout       20s;
+                proxy_read_timeout          30s;
+                proxy_http_version 1.1;
+                proxy_set_header Connection "";
+                proxy_set_header Host $host;
+                proxy_set_header X-Forwarded-Host $host;
+                proxy_set_header X-Forwarded-Server $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#                proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+                proxy_intercept_errors on;
+                proxy_pass http://127.0.0.1:4200/;
+        }
+        下面是为live-reload的配置
+        location ^~ /sockjs-node/ {
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_http_version 1.1;
+                proxy_cache_bypass $http_upgrade;
+                proxy_pass http://127.0.0.1:4200/sockjs-node/;
+        }
+注意：这里的location 使用了 ^~ 匹配，这样就不会再遍历正则匹配项,参见https://segmentfault.com/a/1190000002797606
+
+angular配置：index.html
+  <base href="/ng/">
+
+
+https://nathanfriend.io/2018/05/14/live-reloading-an-angular-2-app-behind-nginx.html
+
+
+问题：
+1、 对于大文件，出现的ERR_CONTENT_LENGTH_MISMATCH错误
+这是，因为nginx会将大的文件存到cache目录里，如果nginx的当前用户对这个目录没有访问权限就会出错。
+解决方法有几种，这里，直接关掉缓存
+nginx配置文件加上：proxy_buffering off;
+
+2、
+
 
 
 

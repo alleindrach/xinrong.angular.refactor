@@ -18,17 +18,17 @@ export class DiscoveryComponent implements OnInit {
   banners: Banner[] = [
     {
       url: 'guarantee_borrow_zt.html',
-      image: '../../assets/images/banners/04.jpg',
+      image: 'assets/images/banners/04.jpg',
       alt: ''
     },
     {
       url: 'guarantee_borrow_company.html',
-      image: '../../assets/images/banners/12.jpg',
+      image: 'assets/images/banners/12.jpg',
       alt: ''
     },
     {
       url: 'xr_compliance_18.html',
-      image: '../../assets/images/banners/06.jpg',
+      image: 'assets/images/banners/06.jpg',
       alt: ''
     },
   ];
