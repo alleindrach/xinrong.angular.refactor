@@ -163,13 +163,16 @@
 }
 
 .my_money .my_card .card_one {
-  background: #444554 "../../assets/images/card01.png" no-repeat;
+  background: #444554;
+  // background-image:url(../../assets/images/card01.png);
+  // background-image: image-url('../../assets/images/card01.png') no-repeat;
   background-size: 100% 100%;
   border-radius: 6px;
 }
 /*普通账户*/
 .my_money .my_card .card_two {
-  background: #fccb5f "../../assets/images/card02.png" no-repeat;
+  background: #fccb5f ;
+  // "assets/images/card02.png" no-repeat;
   background-size: 100% 100%;
   border-radius: 6px;
 }
@@ -196,7 +199,7 @@
 }
 /*我的借款*/
 .my_money .my_card .card_three {
-  background: #e9ce9c "../../assets/images/card03.png" no-repeat;
+  background: #e9ce9c "assets/images/card03.png" no-repeat;
   background-size: 100% 100%;
   border-radius: 6px;
 }
@@ -905,7 +908,7 @@
 }
 /*总资产*/
 .account_asset .total_assets {
-  background: #4a4b5b "../../assets/images/corrugated01.png" bottom no-repeat;
+  background: #4a4b5b "assets/images/corrugated01.png" bottom no-repeat;
   background-size: 100% auto;
   padding: 1.5rem 0;
   text-align: center;
@@ -919,8 +922,8 @@
   font-size: 2.4rem;
 }
 .account_asset .total_assets_orange {
-  background: "../../assets/images/corrugated01.png" bottom no-repeat, -webkit-linear-gradient(top, #fc790d 2%, #f69b43);
-  background: "../../assets/images/corrugated01.png" bottom no-repeat, linear-gradient(top, #fc790d 2%, #f69b43);
+  background: "assets/images/corrugated01.png" bottom no-repeat, -webkit-linear-gradient(top, #fc790d 2%, #f69b43);
+  background: "assets/images/corrugated01.png" bottom no-repeat, linear-gradient(top, #fc790d 2%, #f69b43);
 }
 .account_asset .total_assets_orange h2 {
   color: #fff;
