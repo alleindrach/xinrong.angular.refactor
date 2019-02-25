@@ -1,6 +1,6 @@
 export interface IStore {
-    set(key: string, value: string): void;
-    get(key: string): string;
+    set(key: string, value: any): void;
+    get(key: string): any;
     setObject(key: string, value: any): void;
     getObject(key: string): any;
     remove(key: string): any;

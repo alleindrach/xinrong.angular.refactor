@@ -30,15 +30,15 @@
       <ng-container *ngFor="let account of accounts;let i = index">
         <div class="item {{account.class}}">
           <span class="f-eyes">
-            <img src="assets/images/icons/eye_open_white.png" class="eye" />
-            <img class="eye" src="assets/images/icons/eye_close_white.png" style="display:none" />
+            <img src="assets/images/icons/eye_open_white.png" class="eye" *ngIf="!showAccount" (click)="switchShow()"/>
+            <img class="eye" src="assets/images/icons/eye_close_white.png" *ngIf="showAccount" (click)="switchShow()" />
           </span>
           <a href="asset/esw" id="esw_account_asset">
             <h1><i class="icont">{{account.name}}</i>{{account.name}}账户总资产(元)</h1>
-            <h2 class="isShow"><span>{{account.balance}}</span></h2>
-            <h3 class="isShow">可用余额：<span>{{account.avialBalance}}</span></h3>
-            <h2 class="isShow" style="display: none;">***</h2>
-            <h3 class="isShow" style="display: none;">可用余额：{{account.avialBalance}}</h3>
+            <h2 class="isShow" *ngIf="showAccount"><span>{{account.balance}}</span></h2>
+            <h3 class="isShow" *ngIf="showAccount">可用余额：<span>{{account.avialBalance}}</span></h3>
+            <h2 class="isShow" *ngIf="!showAccount">***</h2>
+            <h3 class="isShow" *ngIf="!showAccount">可用余额：***</h3>
           </a>
           <ul class="card_sub">
             <li class="bor"><a href="withdraw/{{account.type}}">提现</a></li>

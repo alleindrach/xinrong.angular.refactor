@@ -14,11 +14,11 @@ export class LocalstorageService implements IStore {
     this.localStorage = localStorage;
   }
 
-  public set(key: string, value: string): void {
+  public set(key: string, value: any): void {
     this.localStorage[key] = value;
   }
 
-  public get(key: string): string {
+  public get(key: string): any {
     return this.localStorage[key] || false;
   }
 
@@ -33,4 +33,6 @@ export class LocalstorageService implements IStore {
   public remove(key: string): any {
     this.localStorage.removeItem(key);
   }
+
+
 }

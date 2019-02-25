@@ -7,6 +7,7 @@ import { LoginFail } from '../../model/loginfail';
 import { Result } from '../../model/result';
 import { User } from 'src/app/model/user';
 import { Session } from 'src/app/model/session';
+import { Assets } from 'src/app/model/assets';
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +43,8 @@ export class MemberService {
   }
   getBaseInfo$(): Observable<User> {
     return this.http.get<User>(environment.baseUrl + '/v2/member/get_base_info.jso');
+  }
+  assetOverview$(): Observable<Assets> {
+    return this.http.get<Assets>(environment.baseUrl + '/v2/escrow/get_asset_overview.jso');
   }
 }
