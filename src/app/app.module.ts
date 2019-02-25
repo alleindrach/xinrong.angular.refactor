@@ -26,6 +26,7 @@ import { BannerComponent } from './component/general/banner/banner.component';
 import { GoodShowPipe } from './common/pipe/good-show.pipe';
 import { AccountComponent } from './component/user/account/account.component';
 import { LoginComponent } from './component/user/login/login.component';
+import { ClarityModule } from '@clr/angular';
 
 
 
@@ -61,6 +62,7 @@ export const httpInterceptorProviders = [
     HttpClientModule,
     CommonModule,
     AppRoutingModule,
+    ClarityModule,
   ],
   providers: [
     httpInterceptorProviders
