@@ -52,6 +52,10 @@
 <!--礼金&积分&成长值-->
 <div class="black5"></div>
 
+<input #input value="Message">
+<button (click)="popup.showAsComponent(input.value)">Show as component</button>
+<button (click)="popup.showAsElement(input.value)">Show as element</button>
+
 
 <app-navbar [active]=3></app-navbar>
 <router-outlet></router-outlet>

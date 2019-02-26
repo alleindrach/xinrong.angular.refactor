@@ -11,7 +11,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es5",
+    "target": "es2015", // Custom Elements require ES2015 classes (or polyfill).
     "typeRoots": [
       "node_modules/@types"
     ],

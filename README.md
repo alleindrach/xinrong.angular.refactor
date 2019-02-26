@@ -221,7 +221,7 @@ https://material.angular.cn/guide/getting-started
     npm start
 4.3 依照angular.json的 配置
     ng run <project>:<architect>[:configurations] [其他配置]
-
+    如  ng run xinrong:serve
 
 APPENDIX
 A 配置文件说明
@@ -286,7 +286,9 @@ https://nathanfriend.io/2018/05/14/live-reloading-an-angular-2-app-behind-nginx.
 解决方法有几种，这里，直接关掉缓存
 nginx配置文件加上：proxy_buffering off;
 
-2、
+D、UI库
+https://github.com/angular/material2
+https://clarity.design/documentation/get-started
 
 
 

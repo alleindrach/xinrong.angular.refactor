@@ -27,8 +27,7 @@ import { GoodShowPipe } from './common/pipe/good-show.pipe';
 import { AccountComponent } from './component/user/account/account.component';
 import { LoginComponent } from './component/user/login/login.component';
 import { ClarityModule } from '@clr/angular';
-
-
+import { PopupComponent } from './component/popup/popup/popup.component';
 
 /** Http interceptor providers in outside-in order */
 export const httpInterceptorProviders = [
@@ -51,7 +50,8 @@ export const httpInterceptorProviders = [
     BannerComponent,
     GoodShowPipe,
     AccountComponent,
-    LoginComponent
+    LoginComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +67,7 @@ export const httpInterceptorProviders = [
   providers: [
     httpInterceptorProviders
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PopupComponent]
 })
 export class AppModule { }
