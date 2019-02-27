@@ -8,6 +8,8 @@ import { Result } from "../../model/result";
 import { User } from "src/app/model/user";
 import { Session } from "src/app/model/session";
 import { Assets } from "src/app/model/assets";
+import { AccountIndex } from "src/app/model/account.index";
+import { GrowValue } from 'src/app/model/grow.value';
 
 @Injectable({
   providedIn: "root"
@@ -60,9 +62,26 @@ export class MemberService {
       environment.baseUrl + "/v2/member/get_base_info.jso"
     );
   }
-  assetOverview$(): Observable<Assets> {
+  getAssetOverview$(): Observable<Assets> {
     return this.http.get<Assets>(
       environment.baseUrl + "/v2/escrow/get_asset_overview.jso"
     );
+  }
+  getAccountIndexInfo$(): Observable<AccountIndex> {
+    return this.http
+      .get<AccountIndex>(environment.baseUrl + "/v2/xincunbao/get_index_info.jso")
+      .pipe(
+        map(result => {
+          result.state = Number(result.state);
+          result.score=Number(result.score);
+          result.money=Number(result.money);
+          result.rewardMoney=Number(result.rewardMoney);
+          return result;
+        })
+      );
+  }
+  getVipGrowUpValue$():Observable<GrowValue> {
+    return this.http
+      .get<GrowValue>(environment.baseUrl + "/v2/vip/user_growth_info.jso");
   }
 }

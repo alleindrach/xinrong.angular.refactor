@@ -20,17 +20,17 @@
 <!--未登陆-->
 <ng-container *ngIf="!insession">
   <div class="account_nologin_sub account_top">
-    <a routerLink="/login" [queryParams]="{redirect: '/account'}"  class="sub02">登录</a>
+    <a routerLink="/login" [queryParams]="{redirect: '/account'}" class="sub02">登录</a>
   </div>
 </ng-container>
 <div class="black5"></div>
 <div class="my_money">
   <div class="my_card">
-    <owl-carousel #owlElement [options]="accountOwlOptions" [carouselClasses]="['owl-theme', 'sliding']" [items]="accounts"> 
+    <owl-carousel #owlElement [options]="accountOwlOptions" [carouselClasses]="['owl-theme', 'sliding']" [items]="accounts">
       <ng-container *ngFor="let account of accounts;let i = index">
         <div class="item {{account.class}}">
           <span class="f-eyes">
-            <img src="assets/images/icons/eye_open_white.png" class="eye" *ngIf="!showAccount" (click)="switchShow()"/>
+            <img src="assets/images/icons/eye_open_white.png" class="eye" *ngIf="!showAccount" (click)="switchShow()" />
             <img class="eye" src="assets/images/icons/eye_close_white.png" *ngIf="showAccount" (click)="switchShow()" />
           </span>
           <a href="asset/esw" id="esw_account_asset">
@@ -47,6 +47,25 @@
         </div>
       </ng-container>
     </owl-carousel>
+  </div>
+  <!--礼金&积分&成长值-->
+  <div class="my_font">
+    <ul>
+      <li class="bor"><a href="gift/amounts">
+          <h2><span><span>{{accountIndex?.rewardMoney}}</span><span *ngIf='accountIndex?.rewardMoney>0'>{{accountIndex?.deadLine}}</span></span></h2>
+          <p>礼金(元)</p>
+        </a></li>
+      <li class="bor">
+        <a href="account/integral">
+          <h2><span>{{accountIndex?.score}}</span></h2>
+          <p>积分(分)</p>
+        </a></li>
+      <li><a href="/experience">
+          <h2><span>{{growthInfo?.curGrowthValue}}</span></h2>
+          <p>成长值(点)</p>
+        </a></li>
+    </ul>
+    <div class="clearfix"></div>
   </div>
 </div>
 <!--礼金&积分&成长值-->

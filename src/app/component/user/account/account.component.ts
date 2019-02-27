@@ -14,6 +14,8 @@ import { Assets } from "src/app/model/assets";
 import { PopupService } from "src/app/service/aux/popup.service";
 import { PopupComponent } from "../../popup/popup/popup.component";
 import { createCustomElement } from "@angular/elements";
+import { AccountIndex } from "src/app/model/account.index";
+import { GrowValue } from "src/app/model/grow.value";
 @Component({
   selector: "app-account",
   templateUrl: "./account.component.html",
@@ -23,6 +25,8 @@ import { createCustomElement } from "@angular/elements";
 export class AccountComponent implements OnInit {
   insession = false;
   showAccount = false;
+  accountIndex: AccountIndex = null;
+  growthInfo: GrowValue = null;
   accounts = [
     {
       type: "esw",
@@ -64,8 +68,7 @@ export class AccountComponent implements OnInit {
     const PopupElement = createCustomElement(PopupComponent, { injector });
     // Register the custom element with the browser.
     let popupElement = customElements.get("popup-element") as any;
-    if(!popupElement)
-        customElements.define("popup-element", PopupElement);
+    if (!popupElement) customElements.define("popup-element", PopupElement);
   }
 
   switchShow() {
@@ -83,7 +86,7 @@ export class AccountComponent implements OnInit {
         this.insession = true;
       }
     });
-    this.memberService.assetOverview$().subscribe((assets: Assets) => {
+    this.memberService.getAssetOverview$().subscribe((assets: Assets) => {
       if (Number(assets.state) === 0) {
         this.accounts[0].balance =
           Number(assets.eswAccountBalance) + Number(assets.eswEarningMoney);
@@ -96,6 +99,14 @@ export class AccountComponent implements OnInit {
           Number(assets.xcbTotalMoney);
         this.accounts[1].avialBalance = Number(assets.accountBalance);
       }
+    });
+    this.memberService
+      .getAccountIndexInfo$()
+      .subscribe((indexInfo: AccountIndex) => {
+        this.accountIndex = indexInfo;
+      });
+    this.memberService.getVipGrowUpValue$().subscribe((grow: GrowValue) => {
+      this.growthInfo = grow;
     });
   }
 }
