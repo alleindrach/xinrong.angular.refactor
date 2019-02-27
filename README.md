@@ -239,6 +239,7 @@ html页面上的<custom-element>是有浏览器向注册表中查询已注册的
 
 自定义元素来:
 
+
 app.module.ts 的metadata中增加：
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 
@@ -247,7 +248,7 @@ app.module.ts 的metadata中增加：
     const PopupElement = createCustomElement(PopupComponent, { injector });
     // Register the custom element with the browser.
     customElements.define("popup-element", PopupElement);
-    
+
 这样，就可以在html中增加一个自定义元素:
     <popup-element message='hello world!' id='helloworld' closed='document.body.removeChild(this)'></popup-element>
 
@@ -282,6 +283,16 @@ app.module.ts 的metadata中增加：
       // Add to the DOM
       document.body.appendChild(popupEl);
     }
+
+6 图片路径
+将静态图片转移到外部
+nginx 配置
+        location ^~ /ng/assets/images {
+                alias /data/web/www.xinrong.com/webapp2.0/webapp3.0/images;
+        }
+删掉assets/images 目录
+
+
 
 APPENDIX
 A 配置文件说明
