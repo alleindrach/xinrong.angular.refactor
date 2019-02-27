@@ -223,6 +223,66 @@ https://material.angular.cn/guide/getting-started
     ng run <project>:<architect>[:configurations] [其他配置]
     如  ng run xinrong:serve
 
+5 自定义元素（custom element） OR 动态组件（Dynamic Component）
+自定义元素用的是ES2015中的custom elements规范，需要浏览器的支持，同时，TS的编译目标也要指向ES2015。
+html页面上的<custom-element>是有浏览器向注册表中查询已注册的元素构建脚本（由angular生成），最终进入angular脚本。
+注意，自定义元素的tag名字必须有 - 中划线。
+
+而动态组件是利用TS的接口，在运行时实例化组件接口的实际子类，插入到view树中。模版文件中的<custom-component-tag>标签是由angular插入的动态组件。
+
+参见：
+自定义元素：https://www.angular.cn/guide/elements
+
+动态组件:https://www.angular.cn/guide/dynamic-component-loader
+
+具体实现可以参见popup.component 和popup.service 的实现。
+
+自定义元素来:
+
+app.module.ts 的metadata中增加：
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+
+需要在页面加载时向浏览器注册，这个在account.component.ts的构造函数中：
+    // Convert `PopupComponent` to a custom element.
+    const PopupElement = createCustomElement(PopupComponent, { injector });
+    // Register the custom element with the browser.
+    customElements.define("popup-element", PopupElement);
+    
+这样，就可以在html中增加一个自定义元素:
+    <popup-element message='hello world!' id='helloworld' closed='document.body.removeChild(this)'></popup-element>
+
+    事件绑定需要代码动态绑定：
+
+    const x=document.getElementById('helloworld') as any;
+    x.addEventListener(
+    closed',()=>alert('triggered!')
+    );
+
+    页面静态形式的似乎不起作用：
+    <popup-element message='hello world!' id='helloworld' closed='alert()'></popup-element>
+
+
+当然，也可以动态创建：
+  // This uses the new custom-element method to add the popup to the DOM.
+    showAsElement(message: string) {
+      // Create element
+      const popupEl: NgElement &
+        WithProperties<PopupComponent> = document.createElement(
+        "popup-element"
+      ) as any;
+
+      // Listen to the close event
+      popupEl.addEventListener("closed", () =>
+        document.body.removeChild(popupEl)
+      );
+
+      // Set the message
+      popupEl.message = message;
+
+      // Add to the DOM
+      document.body.appendChild(popupEl);
+    }
+
 APPENDIX
 A 配置文件说明
 A.a tsconfig.json 
