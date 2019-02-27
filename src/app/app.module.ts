@@ -28,7 +28,8 @@ import { AccountComponent } from './component/user/account/account.component';
 import { LoginComponent } from './component/user/login/login.component';
 import { ClarityModule } from '@clr/angular';
 import { PopupComponent } from './component/popup/popup/popup.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginRespComponent } from './component/user/login-resp/login-resp.component';
 /** Http interceptor providers in outside-in order */
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: ServerTimeInterceptor, multi: true },
@@ -51,7 +52,8 @@ export const httpInterceptorProviders = [
     GoodShowPipe,
     AccountComponent,
     LoginComponent,
-    PopupComponent
+    PopupComponent,
+    LoginRespComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,8 @@ export const httpInterceptorProviders = [
     CommonModule,
     AppRoutingModule,
     ClarityModule,
+    //响应式表单模块
+    ReactiveFormsModule
   ],
   providers: [
     httpInterceptorProviders

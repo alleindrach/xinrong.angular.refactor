@@ -9,6 +9,7 @@ import { BidTabsComponent } from '../component/invest/bid.tabs/bid.tabs.componen
 import { DiscoveryComponent } from '../component/discovery/discovery.component';
 import { AccountComponent } from '../component/user/account/account.component';
 import { LoginComponent } from '../component/user/login/login.component';
+import { LoginRespComponent } from '../component/user/login-resp/login-resp.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'bid/:sid', component: BidDetailComponent },
   { path: 'invest/:sid', component: InvestComponent },
   { path: 'account', component: AccountComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginRespComponent },
 ];
 @NgModule({
   declarations: [],
