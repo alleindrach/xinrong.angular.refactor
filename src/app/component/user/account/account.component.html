@@ -75,7 +75,7 @@
 <div class="swiper-container account_nav">
   <ul class="swiper-wrapper">
     <li class="swiper-slide  noLoginHide">
-      <a id="borrowChoose" href="/webapp2.0/webapp3.0/views/guarantee_borrow/loan.html">
+      <a href="guarantee_borrow/loan">
         <p>
           <img src="assets/images/icon/79.png">
         </p>
@@ -83,7 +83,61 @@
         <p></p>
       </a>
     </li>
+    <li class="swiper-slide noLoginHide" id="xcb_view" style="display: none;">
+      <a href="/xincunbao">
+        <p>
+          <img src="assets/images/icon/78.png">
+        </p>
+        <h2>信存宝</h2>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a href="refund_calendar">
 
+        <span class="calenderIcon">
+          <span class="f-t">31</span>
+          <p>
+            <img src="assets/images/icon/26.png" />
+          </p>
+          <i>
+            <img src="assets/images/icon/28.png" style="display: none;" id="calenNum" />
+          </i>
+        </span>
+        <h2>回款日历</h2>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a href="income_expense">
+        <p>
+          <img src="assets/images/icon/25.png" />
+        </p>
+        <h2>收支明细</h2>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a (click)="goMyInvest();">
+        <p>
+          <img src="assets/images/icon/23.png" />
+        </p>
+        <h2>我的投资</h2>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a href="account/auto_invest">
+        <p>
+          <img src="assets/images/icon/24.png" />
+        </p>
+        <h2>自动投资</h2>
+      </a>
+    </li>
+    <li class="swiper-slide">
+      <a href="calculator">
+        <p>
+          <img src="assets/images/icon/27.png" />
+        </p>
+        <h2>计算器</h2>
+      </a>
+    </li>
   </ul>
   <div class="clearfix"></div>
   <div class="swiper-pagination"></div>
