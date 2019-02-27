@@ -50,8 +50,8 @@ export class LoginRespComponent implements OnInit {
         this.refreshCaptcha();
       }
     });
-
-    this.route.paramMap.subscribe(p => {
+    
+    this.route.queryParamMap.subscribe(p => {
       this.redirectUrl = p.get("redirect");
       if (!this.redirectUrl) {
         this.route.parent.url.subscribe(u => {

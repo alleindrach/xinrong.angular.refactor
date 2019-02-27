@@ -63,7 +63,9 @@ export class AccountComponent implements OnInit {
     // Convert `PopupComponent` to a custom element.
     const PopupElement = createCustomElement(PopupComponent, { injector });
     // Register the custom element with the browser.
-    customElements.define("popup-element", PopupElement);
+    let popupElement = customElements.get("popup-element") as any;
+    if(!popupElement)
+        customElements.define("popup-element", PopupElement);
   }
 
   switchShow() {
@@ -71,10 +73,10 @@ export class AccountComponent implements OnInit {
     this.db.set("isShowInAccount", this.showAccount);
   }
   ngOnInit() {
-  //   const x=document.getElementById('helloworld') as any;
-  //   x.addEventListener(
-  // 'closed',()=>alert('triggered!')
-  // );
+    //   const x=document.getElementById('helloworld') as any;
+    //   x.addEventListener(
+    // 'closed',()=>alert('triggered!')
+    // );
     this.showAccount = Boolean(this.db.get("isShowInAccount") === "true");
     this.memberService.insession$().subscribe((result: Session) => {
       if (Number(result.state) === 0) {
@@ -96,5 +98,4 @@ export class AccountComponent implements OnInit {
       }
     });
   }
-  
 }
