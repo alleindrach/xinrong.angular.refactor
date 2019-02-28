@@ -30,6 +30,7 @@ import { ClarityModule } from '@clr/angular';
 import { PopupComponent } from './component/popup/popup/popup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginRespComponent } from './component/user/login-resp/login-resp.component';
+import { EscrowAccountComponent } from './component/popup/escrow-account/escrow-account.component';
 /** Http interceptor providers in outside-in order */
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: ServerTimeInterceptor, multi: true },
@@ -53,7 +54,8 @@ export const httpInterceptorProviders = [
     AccountComponent,
     LoginComponent,
     PopupComponent,
-    LoginRespComponent
+    LoginRespComponent,
+    EscrowAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ export const httpInterceptorProviders = [
     httpInterceptorProviders
   ],
   bootstrap: [AppComponent],
-  entryComponents: [PopupComponent],
+  entryComponents: [PopupComponent,EscrowAccountComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

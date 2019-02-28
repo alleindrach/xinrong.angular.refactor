@@ -16,10 +16,11 @@ import { PopupComponent } from "../../popup/popup/popup.component";
 import { createCustomElement } from "@angular/elements";
 import { AccountIndex } from "src/app/model/account.index";
 import { GrowValue } from "src/app/model/grow.value";
+import { EscrowAccountComponent } from "../../popup/escrow-account/escrow-account.component";
 @Component({
   selector: "app-account",
   templateUrl: "./account.component.html",
-  styleUrls: ["./account.component.scss"],
+  styleUrls: ["./account.component.scss","../../popup/escrow-account/escrow-account.component.scss"],
   encapsulation: ViewEncapsulation.None
 })
 export class AccountComponent implements OnInit {
@@ -61,14 +62,14 @@ export class AccountComponent implements OnInit {
     private db: LocalstorageService,
     private route: ActivatedRoute,
     private router: Router,
-    injector: Injector,
+    private injector: Injector,
     public popup: PopupService
   ) {
-    // Convert `PopupComponent` to a custom element.
-    const PopupElement = createCustomElement(PopupComponent, { injector });
-    // Register the custom element with the browser.
-    let popupElement = customElements.get("popup-element") as any;
-    if (!popupElement) customElements.define("popup-element", PopupElement);
+    // // Convert `PopupComponent` to a custom element.
+    // const PopupElement = createCustomElement(PopupComponent, { injector });
+    // // Register the custom element with the browser.
+    // let popupElement = customElements.get("popup-element") as any;
+    // if (!popupElement) customElements.define("popup-element", PopupElement);
   }
 
   switchShow() {
@@ -103,7 +104,16 @@ export class AccountComponent implements OnInit {
     this.memberService
       .getAccountIndexInfo$()
       .subscribe((indexInfo: AccountIndex) => {
-        this.accountIndex = indexInfo;
+        if (Number(indexInfo.state) === 0) {
+          this.accountIndex = indexInfo;
+        } else {
+          this.popup.showAsElement(
+            this.injector,
+            EscrowAccountComponent,
+            "esw-account",
+            {}
+          );
+        }
       });
     this.memberService.getVipGrowUpValue$().subscribe((grow: GrowValue) => {
       this.growthInfo = grow;

@@ -3,11 +3,12 @@ import {
   Injector,
   ApplicationRef,
   ComponentFactoryResolver,
-
+  Type
 } from "@angular/core";
-import { NgElement, WithProperties } from '@angular/elements';
+import { NgElement, WithProperties } from "@angular/elements";
 import { PopupComponent } from "src/app/component/popup/popup/popup.component";
-
+import { createCustomElement } from "@angular/elements";
+import { IPopupComponent } from "src/app/component/popup/popup/popup.base";
 @Injectable({
   providedIn: "root"
 })
@@ -18,6 +19,12 @@ export class PopupService {
     private componentFactoryResolver: ComponentFactoryResolver
   ) {}
 
+  registerCustomElement(injector: any, component: any, tag: string): void {
+    const customElement = createCustomElement(component, { injector });
+    // Register the custom element with the browser.
+    let existCustomElement = customElements.get(tag) as any;
+    if (!existCustomElement) customElements.define(tag, customElement);
+  }
   // Previous dynamic-loading method required you to set up infrastructure
   // before adding the popup to the DOM.
   showAsComponent(message: string) {
@@ -47,12 +54,22 @@ export class PopupService {
   }
 
   // This uses the new custom-element method to add the popup to the DOM.
-  showAsElement(message: string) {
+  showAsElement(
+    injector: any,
+    ComponentType: Type<any>,
+    tag: string,
+    data: any
+  ) :NgElement &
+  WithProperties<IPopupComponent> {
     // Create element
+    const customElement = createCustomElement(ComponentType, { injector });
+    // Register the custom element with the browser.
+    let existCustomElement = customElements.get(tag) as any;
+
+    if (!existCustomElement) customElements.define(tag, customElement);
+
     const popupEl: NgElement &
-      WithProperties<PopupComponent> = document.createElement(
-      "popup-element"
-    ) as any;
+      WithProperties<IPopupComponent> = document.createElement(tag) as any;
 
     // Listen to the close event
     popupEl.addEventListener("closed", () =>
@@ -60,9 +77,11 @@ export class PopupService {
     );
 
     // Set the message
-    popupEl.message = message;
+    popupEl.data = data;
 
     // Add to the DOM
     document.body.appendChild(popupEl);
+    
+    return popupEl;
   }
 }
